@@ -112,11 +112,12 @@ main {
 .carousel-section h2,
 .currency-info h2 {
   text-align: center;
-  text-shadow: 0 0 6px rgba(255,255,255,0.8);
   color: #2b0b4a;
+  text-shadow: 0 0 6px rgba(255,255,255,0.8);
+
   font-family: 'Marck Script', cursive;
-letter-spacing: 2px;
-font-size: 2rem;
+  letter-spacing: 2px;
+  font-size: 2rem;
 }
 
 /* Карусель */
@@ -489,7 +490,7 @@ font-size: 2rem;
   }
 
   .header h1 {
-    font-size: 1.6rem;
+    font-size: 1.6rem;   /* той самий шрифт, просто менший */
   }
 
   main {
@@ -531,7 +532,7 @@ font-size: 2rem;
 @media (max-width: 480px) {
 
   body {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .header {
@@ -554,6 +555,61 @@ font-size: 2rem;
     padding-inline: 8px;
   }
 
+  .carousel-item {
+    flex: 0 0 90%;
+    max-width: 90%;
+    min-height: 360px;
+    padding: 12px;
+  }
+
+  .carousel-item img {
+    height: 180px;
+  }
+
+  .product-name {
+    font-size: 1.25rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  .product-desc {
+    font-size: 0.85rem;
+    min-height: 60px;
+    color: #2b1a4a;      /* трішки темніше = краще видно на мобільному */
+    text-shadow: none;   /* без розмиття */
+  }
+
+  .add-btn {
+    padding: 9px;
+    font-size: 0.95rem;
+  }
+
+  .left { left: 2px; }
+  .right { right: 2px; }
+}
+/* ✅ Адаптація для дуже маленьких телефонів */
+@media (max-width: 360px) {
+    body {
+        font-size: 13px;
+    }
+    .header {
+        padding: 6px 10px;
+    }
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    .cart-icon {
+        width: 28px;
+    }
+    .carousel {
+        margin-top: 10px;
+    }
+    .carousel-window {
+        padding-inline: 6px;
+    }
+    
   /* одна велика картка майже на весь екран */
   .carousel-item {
     flex: 0 0 90%;
