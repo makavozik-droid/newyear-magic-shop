@@ -60,6 +60,20 @@ body {
   box-shadow: 0 6px 18px #0000004d;
 }
 
+.site-logo {
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px #fffc);
+  width: auto;
+  height: 80px;
+  display: block;
+}
+
+@media (width <= 480px) {
+  .site-logo {
+    height: 60px;
+  }
+}
+
 .header h1 {
   letter-spacing: 2px;
   color: #fff;
