@@ -59,6 +59,82 @@ body {
   /* прибираємо "плашковість" */
   border-radius: 0;
   backdrop-filter: none;
+    gap: 24px; /* трішки простору між логотипом, назвою і кошиком */
+}
+/* === ✨ Назва "Лавка Чудес" у хедері === */
+
+.header-title {
+  flex: 1;
+  text-align: center;
+}
+
+.header-title-main {
+  display: inline-block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2rem;
+  letter-spacing: 5px;
+
+  color: #fff7d1;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 18px rgba(255, 216, 140, 0.95),
+    0 0 30px rgba(180, 130, 255, 0.9);
+
+  position: relative;
+  animation: headerTitleGlow 4.5s ease-in-out infinite;
+}
+
+/* легка "пульсація" назви */
+@keyframes headerTitleGlow {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-1px) scale(1.03);
+    opacity: 1;
+    text-shadow:
+      0 0 8px rgba(255, 255, 255, 1),
+      0 0 24px rgba(255, 225, 160, 1),
+      0 0 40px rgba(186, 140, 255, 1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.95;
+  }
+}
+
+/* зірочки при наведенні */
+.header-title-main::before,
+.header-title-main::after {
+  content: "✦";
+  position: absolute;
+  font-size: 1.1rem;
+  color: #ffe9a3;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.4s ease, transform 0.4s ease, transform 0.4s ease;
+}
+
+.header-title-main::before {
+  top: -8px;
+  left: -26px;
+}
+
+.header-title-main::after {
+  top: -10px;
+  right: -24px;
+}
+
+.header-title-main:hover::before,
+.header-title-main:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* невелика реакція при наведенні */
+.header-title-main:hover {
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* --- ЛОГОТИП САЙТУ --- */
@@ -578,6 +654,11 @@ main {
     padding: 10px 16px;
   }
 
+  .header-title-main {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
   .header h1 {
     font-size: 1.6rem;   /* той самий шрифт, просто менший */
   }
@@ -626,6 +707,11 @@ main {
 
   .header {
     padding: 8px 12px;
+  }
+
+  .header-title-main {
+    font-size: 1.7rem;
+    letter-spacing: 1.5px;
   }
 
   .header h1 {
@@ -686,6 +772,12 @@ main {
     .header {
         padding: 6px 10px;
     }
+
+    .header-title-main {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
     .header h1 {
         font-size: 1.2rem;
     }

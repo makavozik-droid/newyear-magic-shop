@@ -54,6 +54,7 @@ body {
   border-radius: 0;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   width: 100%;
   max-width: none;
   margin: 0;
@@ -61,6 +62,69 @@ body {
   display: flex;
   position: relative;
   box-shadow: 0 4px 15px #0000004d;
+}
+
+.header-title {
+  text-align: center;
+  flex: 1;
+}
+
+.header-title-main {
+  letter-spacing: 5px;
+  color: #fff7d1;
+  text-shadow: 0 0 6px #ffffffe6, 0 0 18px #ffd88cf2, 0 0 30px #b482ffe6;
+  font-family: Great Vibes, cursive;
+  font-size: 3.2rem;
+  animation: 4.5s ease-in-out infinite headerTitleGlow;
+  display: inline-block;
+  position: relative;
+}
+
+@keyframes headerTitleGlow {
+  0% {
+    opacity: .95;
+    transform: translateY(0)scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px #fff, 0 0 24px #ffe1a0, 0 0 40px #ba8cff;
+    transform: translateY(-1px)scale(1.03);
+  }
+
+  100% {
+    opacity: .95;
+    transform: translateY(0)scale(1);
+  }
+}
+
+.header-title-main:before, .header-title-main:after {
+  content: "✦";
+  color: #ffe9a3;
+  opacity: 0;
+  font-size: 1.1rem;
+  transition: opacity .4s, transform .4s;
+  position: absolute;
+  transform: scale(.4);
+}
+
+.header-title-main:before {
+  top: -8px;
+  left: -26px;
+}
+
+.header-title-main:after {
+  top: -10px;
+  right: -24px;
+}
+
+.header-title-main:hover:before, .header-title-main:hover:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.header-title-main:hover {
+  transform: translateY(-2px)scale(1.05);
 }
 
 .site-logo {
@@ -580,6 +644,11 @@ main {
     padding: 10px 16px;
   }
 
+  .header-title-main {
+    letter-spacing: 2px;
+    font-size: 2rem;
+  }
+
   .header h1 {
     font-size: 1.6rem;
   }
@@ -626,6 +695,11 @@ main {
 
   .header {
     padding: 8px 12px;
+  }
+
+  .header-title-main {
+    letter-spacing: 1.5px;
+    font-size: 1.7rem;
   }
 
   .header h1 {
@@ -691,6 +765,11 @@ main {
 
   .header {
     padding: 6px 10px;
+  }
+
+  .header-title-main {
+    letter-spacing: 1px;
+    font-size: 1.5rem;
   }
 
   .header h1 {
