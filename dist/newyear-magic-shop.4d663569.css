@@ -29,7 +29,7 @@ body {
 .snow {
   pointer-events: none;
   opacity: .8;
-  z-index: 1;
+  z-index: 0;
   background-image: radial-gradient(#fff 2px, #0000 2px), radial-gradient(#fffc 3px, #0000 3px);
   background-size: 40px 40px, 80px 80px;
   animation: 8s linear infinite snowfall;
@@ -48,24 +48,48 @@ body {
 }
 
 .header {
-  z-index: 2;
-  backdrop-filter: blur(6px);
-  color: #fff;
-  background: #785affcc;
+  z-index: 3;
+  backdrop-filter: none;
+  background: linear-gradient(90deg, #8218f4, #e8ddf1);
+  border-radius: 0;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 10px 32px;
   display: flex;
   position: relative;
-  box-shadow: 0 6px 18px #0000004d;
+  box-shadow: 0 4px 15px #0000004d;
 }
 
 .site-logo {
   object-fit: contain;
-  filter: drop-shadow(0 0 6px #fffc);
+  filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px #ffc8ffb3);
+  z-index: 3;
   width: auto;
-  height: 200px;
+  height: 80px;
+  animation: 3s ease-in-out infinite logo-glow;
   display: block;
+  position: relative;
+}
+
+@keyframes logo-glow {
+  0% {
+    filter: drop-shadow(0 0 6px #ffffffe6) drop-shadow(0 0 18px #ffc8ffe6) drop-shadow(0 0 30px #ffd780b3);
+  }
+
+  33% {
+    filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 22px #9fd8ffe6) drop-shadow(0 0 34px #7a8cffe6);
+  }
+
+  66% {
+    filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 24px #ffb4e6f2) drop-shadow(0 0 38px #ffe696);
+  }
+
+  100% {
+    filter: drop-shadow(0 0 6px #ffffffe6) drop-shadow(0 0 18px #ffc8ffe6) drop-shadow(0 0 30px #ffd780b3);
+  }
 }
 
 @media (width <= 480px) {
@@ -468,7 +492,7 @@ main {
 }
 
 .sparkle:before {
-  content: "❄";
+  content: "❆";
 }
 
 .sparkle:first-child {
@@ -685,6 +709,41 @@ main {
     padding-inline: 6px;
   }
 
+  .site-logo {
+    z-index: 2;
+    position: relative;
+  }
+
+  .header:after {
+    content: "";
+    pointer-events: none;
+    opacity: .8;
+    background: url("https://i.ibb.co/Z6f4KLF/magic-sparkle.png") center / contain no-repeat;
+    width: 140px;
+    height: 140px;
+    animation: 4s ease-in-out infinite sparkle;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+
+  @keyframes sparkle {
+    0% {
+      opacity: .5;
+      transform: scale(.9)rotate(0);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05)rotate(10deg);
+    }
+
+    100% {
+      opacity: .5;
+      transform: scale(.9)rotate(0);
+    }
+  }
+
   .carousel-item {
     flex: 0 0 90%;
     max-width: 90%;
@@ -733,5 +792,128 @@ main {
     opacity: 1;
     transform: translateY(0)scale(1);
   }
+}
+
+.order-ritual {
+  color: #3a175b;
+  margin-top: 8px;
+  font-size: .9rem;
+  line-height: 1.4;
+}
+
+.site-logo {
+  object-fit: contain;
+  z-index: 3;
+  filter: drop-shadow(0 0 6px #ffffffe6) drop-shadow(0 0 18px #ffc8ffe6) drop-shadow(0 0 30px #ffd780e6);
+  width: auto;
+  height: 80px;
+  animation: 3.5s ease-in-out infinite logo-glow, 10s ease-in-out infinite logo-float;
+  display: block;
+  position: relative;
+}
+
+.site-logo:before {
+  content: "";
+  pointer-events: none;
+  border: 2px solid #ffe6aa00;
+  border-radius: 999px;
+  animation: 4.5s ease-in-out infinite logo-ring;
+  position: absolute;
+  inset: -8px;
+  box-shadow: 0 0 25px #ffd27800;
+}
+
+.site-logo:after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: linear-gradient(120deg, #fff0 0%, #ffffffe6 45%, #fff0 100%);
+  width: 50%;
+  height: 160%;
+  animation: 4.5s ease-in-out infinite logo-shine;
+  position: absolute;
+  top: -30%;
+  left: -60%;
+  transform: skewX(-20deg);
+}
+
+@keyframes logo-float {
+  0% {
+    transform: translateY(0)scale(1);
+  }
+
+  50% {
+    transform: translateY(-3px)scale(1.02);
+  }
+
+  100% {
+    transform: translateY(0)scale(1);
+  }
+}
+
+@keyframes logo-ring {
+  0% {
+    border-color: #ffe6aa00;
+    box-shadow: 0 0 #ffd27800;
+  }
+
+  40% {
+    border-color: #ffe6aae6;
+    box-shadow: 0 0 18px #ffd278e6;
+  }
+
+  100% {
+    border-color: #ffe6aa00;
+    box-shadow: 0 0 #ffd27800;
+  }
+}
+
+@keyframes logo-shine {
+  0% {
+    opacity: 0;
+    transform: translateX(0)skewX(-20deg);
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateX(130%)skewX(-20deg);
+  }
+
+  70% {
+    opacity: 0;
+    transform: translateX(260%)skewX(-20deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(260%)skewX(-20deg);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: .5;
+    transform: scale(.9)rotate(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05)rotate(10deg);
+  }
+
+  100% {
+    opacity: .5;
+    transform: scale(.9)rotate(0);
+  }
+}
+
+#order-message, .order-ritual {
+  text-align: left;
+  white-space: pre-line;
 }
 /*# sourceMappingURL=newyear-magic-shop.4d663569.css.map */

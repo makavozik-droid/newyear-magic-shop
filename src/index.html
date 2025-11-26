@@ -103,10 +103,34 @@
     <h2>Ваш кошик</h2>
     <div id="cart-items"></div>
     <p id="cart-total"></p>
-    <button id="cart-close">Закрити</button>
+
+    <div class="popup-buttons">
+      <button id="cart-close">Закрити</button>
+      <button id="cart-checkout" class="add-btn">Оформити замовлення</button>
+    </div>
+  </div>
+</div>
+<!-- Попап оформлення замовлення -->
+<div class="popup" id="order-popup">
+  <div class="popup-inner">
+    <h2>Ваше Серце зробило вибір 💖</h2>
+    <p id="order-message"></p>
+
+    <p class="order-ritual">
+      Щоб Чудо відбулося:
+      <br>1️⃣ Зафіксуйте вибір у своєму серці.
+      <br>2️⃣ Заплатіть Іскрами доброти, тепла чи уваги.
+      <br>3️⃣ З любов’ю очікуйте Чуда.
+    </p>
+
+    <div class="popup-buttons">
+      <button id="order-cancel">Скасувати</button>
+      <button id="order-confirm" class="add-btn">Замовити</button>
+    </div>
   </div>
 </div>
 
+</main>
 <script src="./main.js"></script>
 </body>
 </html>

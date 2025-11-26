@@ -1,43 +1,65 @@
-<!DOCTYPE html><html lang=uk><meta name=viewport content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Marck+Script&amp;display=swap" rel=stylesheet><meta charset=UTF-8><title>Магазин Новорічних Чудес ✨</title><meta property=og:title content="Лавка Чудес ✨ – Магазин новорічних див"><meta property=og:description content="Тут продаються не речі, а відчуття, моменти й маленькі дива. Оберіть своє чудо на Новий рік!"><meta property=og:type content=website><meta property=og:url content=https://newyear-magic-shop.netlify.app/><meta property=og:image content=https://i.pinimg.com/736x/76/e6/fd/76e6fdfdeb1e426aa7a66c48a25f54d4.jpg><meta name=twitter:card content=summary_large_image><meta name=twitter:title content="Лавка Чудес ✨"><meta name=twitter:description content="Магічний новорічний магазин відчуттів і маленьких див."><meta name=twitter:image content=https://i.pinimg.com/736x/76/e6/fd/76e6fdfdeb1e426aa7a66c48a25f54d4.jpg><link rel=stylesheet href=newyear-magic-shop.cc1cd657.css><body>
+<!DOCTYPE html><html lang="uk"><head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&amp;display=swap" rel="stylesheet">
 
-<div class=snow></div>
 
-<header class=header>
-  <img class=site-logo src=logo-magic-shop.bedff651.png alt="Лавка Чудес">
 
-  <div class=cart id=cart-open>
-    <img src=https://cdn-icons-png.flaticon.com/512/3144/3144456.png class=cart-icon alt=Кошик>
-    <span id=cart-count>0</span>
+  <meta charset="UTF-8">
+  <title>Магазин Новорічних Чудес ✨</title>
+  <!-- Open Graph для гарного прев'ю в месенджерах -->
+<meta property="og:title" content="Лавка Чудес ✨ – Магазин новорічних див">
+<meta property="og:description" content="Тут продаються не речі, а відчуття, моменти й маленькі дива. Оберіть своє чудо на Новий рік!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://newyear-magic-shop.netlify.app/">
+<meta property="og:image" content="https://i.pinimg.com/736x/76/e6/fd/76e6fdfdeb1e426aa7a66c48a25f54d4.jpg">
+
+<!-- Прев'ю для Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Лавка Чудес ✨">
+<meta name="twitter:description" content="Магічний новорічний магазин відчуттів і маленьких див.">
+<meta name="twitter:image" content="https://i.pinimg.com/736x/76/e6/fd/76e6fdfdeb1e426aa7a66c48a25f54d4.jpg">
+
+  <link rel="stylesheet" href="/newyear-magic-shop.4d663569.css">
+</head>
+<body>
+
+<div class="snow"></div>
+
+<header class="header">
+  <img class="site-logo" src="/logo-magic-shop.f6dd9c10.png" alt="Лавка Чудес">
+
+  <div class="cart" id="cart-open">
+    <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" class="cart-icon" alt="Кошик">
+    <span id="cart-count">0</span>
   </div>
 </header>
 
 <main>
-  <section class=intro>
+  <section class="intro">
     <p>Тут продаються не речі, а відчуття, моменти й маленькі дива 💫</p>
   </section>
 
-  <section class=carousel-section>
+  <section class="carousel-section">
     <h2>Наші новорічні чудеса</h2>
-    <div class=carousel>
-      <button class="carousel-btn left" id=btn-left>❄️</button>
-      <div class=carousel-window>
-        <div class=carousel-track id=carousel-track>
-          
+    <div class="carousel">
+      <button class="carousel-btn left" id="btn-left">❄️</button>
+      <div class="carousel-window">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Товари додасть JS -->
         </div>
       </div>
-      <button class="carousel-btn right" id=btn-right>❄️</button>
+      <button class="carousel-btn right" id="btn-right">❄️</button>
     </div>
   </section>
 
-  <section class=currency-info>
-  
-  <div class=sparkles>
-    <span class=sparkle></span>
-    <span class=sparkle></span>
-    <span class=sparkle></span>
-    <span class=sparkle></span>
-    <span class=sparkle></span>
-    <span class=sparkle></span>
+  <section class="currency-info">
+  <!-- магічні іскри -->
+  <div class="sparkles">
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
   </div>
 
   <h2>Іскри Світла (ІС)</h2>
@@ -54,36 +76,60 @@
   </ul>
 </section>
 
-
-<div class=popup id=quantity-popup>
-  <div class=popup-inner>
+<!-- Попап введення кількості -->
+<div class="popup" id="quantity-popup">
+  <div class="popup-inner">
     <h3>Введіть кількість:</h3>
-    <input type=number id=quantity-input min=1 value=1>
-    <div class=popup-buttons>
-      <button id=quantity-confirm>Погодити</button>
-      <button id=quantity-cancel>Скасувати</button>
+    <input type="number" id="quantity-input" min="1" value="1">
+    <div class="popup-buttons">
+      <button id="quantity-confirm">Погодити</button>
+      <button id="quantity-cancel">Скасувати</button>
     </div>
   </div>
 </div>
 
-
-<div class=popup id=added-popup>
-  <div class=popup-inner id=added-content>
-    
+<!-- Попап "товар додано" -->
+<div class="popup" id="added-popup">
+  <div class="popup-inner" id="added-content">
+    <!-- JS вставить контент -->
   </div>
 </div>
 
-
-<div class=popup id=cart-popup>
-  <div class=popup-inner id=cart-content>
+<!-- Попап кошика -->
+<div class="popup" id="cart-popup">
+  <div class="popup-inner" id="cart-content">
     <h2>Ваш кошик</h2>
-    <div id=cart-items></div>
-    <p id=cart-total></p>
-    <button id=cart-close>Закрити</button>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+
+    <div class="popup-buttons">
+      <button id="cart-close">Закрити</button>
+      <button id="cart-checkout" class="add-btn">Оформити замовлення</button>
+    </div>
   </div>
 </div>
+<!-- Попап оформлення замовлення -->
+<div class="popup" id="order-popup">
+  <div class="popup-inner">
+    <h2>Ваше Серце зробило вибір 💖</h2>
+    <p id="order-message"></p>
 
-<script src=newyear-magic-shop.290bd9ad.js></script>
+    <p class="order-ritual">
+      Щоб Чудо відбулося:
+      <br>1️⃣ Зафіксуйте вибір у своєму серці.
+      <br>2️⃣ Заплатіть Іскрами доброти, тепла чи уваги.
+      <br>3️⃣ З любов’ю очікуйте Чуда.
+    </p>
 
+    <div class="popup-buttons">
+      <button id="order-cancel">Скасувати</button>
+      <button id="order-confirm" class="add-btn">Замовити</button>
+    </div>
+  </div>
+</div>
 
 </main>
+<script src="/newyear-magic-shop.de158e3a.js"></script>
+
+
+<script src="/newyear-magic-shop.59712999.js"></script></body></html>

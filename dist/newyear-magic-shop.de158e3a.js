@@ -251,5 +251,61 @@ btnRight.addEventListener("click", ()=>{
         behavior: "smooth"
     });
 });
+// === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
+document.addEventListener('DOMContentLoaded', ()=>{
+    const checkoutBtn = document.getElementById('cart-checkout'); // кнопка в кошику
+    const orderPopup = document.getElementById('order-popup');
+    const orderMessage = document.getElementById('order-message');
+    const orderConfirm = document.getElementById('order-confirm');
+    const orderCancel = document.getElementById('order-cancel');
+    const cartPopup = document.getElementById('cart-popup');
+    const cartItemsBox = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const cartCountEl = document.getElementById('cart-count');
+    if (!checkoutBtn) return;
+    // Натискання "Оформити замовлення" у кошику
+    checkoutBtn.addEventListener('click', ()=>{
+        const itemRows = Array.from(document.querySelectorAll('#cart-items .cart-item-row'));
+        if (!itemRows.length) {
+            alert("\u0412\u0430\u0448 \u043A\u043E\u0448\u0438\u043A \u043F\u043E\u0440\u043E\u0436\u043D\u0456\u0439 \uD83E\uDDFA");
+            return;
+        }
+        // Беремо текст по кожному рядку (товару)
+        const lines = itemRows.map((row)=>row.textContent.replace(/\s+/g, ' ').trim());
+        const totalText = cartTotalEl ? cartTotalEl.textContent.trim() : '';
+        // Формуємо магічний текст замовлення
+        const itemsBlock = lines.map((line)=>"\u2022 " + line.replace("\u2716", '').trim()).join('\n');
+        const finalText = "\u0412\u0430\u0448\u0435 \u0421\u0435\u0440\u0446\u0435 \u0437\u0440\u043E\u0431\u0438\u043B\u043E \u0432\u0438\u0431\u0456\u0440.\n\n\u0410\u0440\u0442\u0435\u0444\u0430\u043A\u0442\u0438:\n" + itemsBlock + (totalText ? "\n\n\u0412\u0430\u0440\u0442\u0456\u0441\u0442\u044C: " + totalText.replace("\u0417\u0430\u0433\u0430\u043B\u043E\u043C:", '').trim() : '');
+        if (orderMessage && orderPopup) {
+            orderMessage.textContent = finalText;
+            orderPopup.style.display = 'flex';
+        }
+        // Ховаємо попап кошика, щоб не заважав
+        if (cartPopup) cartPopup.style.display = 'none';
+    });
+    // "Скасувати" у попапі оформлення
+    if (orderCancel && orderPopup && cartPopup) orderCancel.addEventListener('click', ()=>{
+        orderPopup.style.display = 'none';
+        cartPopup.style.display = 'flex'; // повертаємо кошик
+    });
+    // "Замовити"
+    if (orderConfirm) orderConfirm.addEventListener('click', ()=>{
+        // 🔁 Очищаємо дані кошика
+        // 1) обнуляємо лічильник
+        cartCount = 0;
+        if (cartCountEl) cartCountEl.textContent = '0';
+        // 2) очищаємо об’єкт cartData
+        for(const id in cartData)if (Object.hasOwn(cartData, id)) delete cartData[id];
+        // 3) чистимо інтерфейс
+        if (cartItemsBox) cartItemsBox.innerHTML = "<p>\u0412\u0430\u0448 \u043A\u043E\u0448\u0438\u043A \u043F\u043E\u043A\u0438 \u0449\u043E \u043F\u043E\u0440\u043E\u0436\u043D\u0456\u0439 \u2728</p>";
+        if (cartTotalEl) cartTotalEl.textContent = '';
+        // Ховаємо попап оформлення
+        if (orderPopup) orderPopup.style.display = 'none';
+        // Дякуємо
+        alert("\u0414\u044F\u043A\u0443\u0454\u043C\u043E, \u0449\u043E \u043F\u0456\u0434\u0442\u0440\u0438\u043C\u0443\u0454\u0442\u0435 \u0412\u0456\u0440\u0443 \u0432 \u0414\u0438\u0432\u043E! \uD83D\uDCAB");
+        // Конфеті на честь покупки (можна закоментувати, якщо забагато 😄)
+        launchConfetti();
+    });
+}); // === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
 
 //# sourceMappingURL=newyear-magic-shop.de158e3a.js.map

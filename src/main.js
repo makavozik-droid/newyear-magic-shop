@@ -289,3 +289,98 @@ btnRight.addEventListener("click", () => {
   const amount = carouselWindow.clientWidth - 40;
   carouselWindow.scrollBy({ left: amount, behavior: "smooth" });
 });
+// === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
+document.addEventListener('DOMContentLoaded', () => {
+  const checkoutBtn   = document.getElementById('cart-checkout'); // кнопка в кошику
+  const orderPopup    = document.getElementById('order-popup');
+  const orderMessage  = document.getElementById('order-message');
+  const orderConfirm  = document.getElementById('order-confirm');
+  const orderCancel   = document.getElementById('order-cancel');
+  const cartPopup     = document.getElementById('cart-popup');
+  const cartItemsBox  = document.getElementById('cart-items');
+  const cartTotalEl   = document.getElementById('cart-total');
+  const cartCountEl   = document.getElementById('cart-count');
+
+  if (!checkoutBtn) return;
+
+  // Натискання "Оформити замовлення" у кошику
+  checkoutBtn.addEventListener('click', () => {
+    const itemRows = Array.from(
+      document.querySelectorAll('#cart-items .cart-item-row')
+    );
+
+    if (!itemRows.length) {
+      alert('Ваш кошик порожній 🧺');
+      return;
+    }
+
+    // Беремо текст по кожному рядку (товару)
+    const lines = itemRows.map(row =>
+      row.textContent.replace(/\s+/g, ' ').trim()
+    );
+
+    const totalText = cartTotalEl ? cartTotalEl.textContent.trim() : '';
+
+    // Формуємо магічний текст замовлення
+    const itemsBlock = lines
+      .map(line => '• ' + line.replace('✖', '').trim())
+      .join('\n');
+
+    const finalText =
+      'Ваше Серце зробило вибір.\n\n' +
+      'Артефакти:\n' +
+      itemsBlock +
+      (totalText ? '\n\nВартість: ' + totalText.replace('Загалом:', '').trim() : '');
+
+    if (orderMessage && orderPopup) {
+      orderMessage.textContent = finalText;
+      orderPopup.style.display = 'flex';
+    }
+
+    // Ховаємо попап кошика, щоб не заважав
+    if (cartPopup) {
+      cartPopup.style.display = 'none';
+    }
+  });
+
+  // "Скасувати" у попапі оформлення
+  if (orderCancel && orderPopup && cartPopup) {
+    orderCancel.addEventListener('click', () => {
+      orderPopup.style.display = 'none';
+      cartPopup.style.display = 'flex'; // повертаємо кошик
+    });
+  }
+
+    // "Замовити"
+  if (orderConfirm) {
+    orderConfirm.addEventListener('click', () => {
+      // 🔁 Очищаємо дані кошика
+      // 1) обнуляємо лічильник
+      cartCount = 0;
+      if (cartCountEl) cartCountEl.textContent = '0';
+
+      // 2) очищаємо об’єкт cartData
+      for (const id in cartData) {
+        if (Object.hasOwn(cartData, id)) {
+          delete cartData[id];
+        }
+      }
+
+      // 3) чистимо інтерфейс
+      if (cartItemsBox) cartItemsBox.innerHTML = '<p>Ваш кошик поки що порожній ✨</p>';
+      if (cartTotalEl)  cartTotalEl.textContent = '';
+
+      // Ховаємо попап оформлення
+      if (orderPopup) {
+        orderPopup.style.display = 'none';
+      }
+
+      // Дякуємо
+      alert('Дякуємо, що підтримуєте Віру в Диво! 💫');
+
+      // Конфеті на честь покупки (можна закоментувати, якщо забагато 😄)
+      launchConfetti();
+    });
+  }
+});
+// === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
