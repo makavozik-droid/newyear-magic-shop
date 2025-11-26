@@ -99,10 +99,14 @@ const cartTotalP = document.getElementById("cart-total");
 const cartCloseBtn = document.getElementById("cart-close");
 const cartOpen = document.getElementById("cart-open");
 let selectedProduct = null;
-// 📌 Відкрити попап введення кількості
+// 📌 Відкрити попап введення кількості ТІЛЬКИ для товарів
 document.body.addEventListener("click", (e)=>{
-    if (e.target.classList.contains("add-btn")) {
-        const id = Number(e.target.dataset.id);
+    const btn = e.target;
+    // реагуємо лише на кнопки "Додати до кошика" в картках
+    if (btn.classList.contains("add-btn") && btn.dataset.id && // є data-id
+    btn.closest(".carousel-item") // всередині товару
+    ) {
+        const id = Number(btn.dataset.id);
         selectedProduct = products.find((p)=>p.id === id);
         quantityInput.value = 1;
         quantityPopup.style.display = "flex";
@@ -253,6 +257,7 @@ btnRight.addEventListener("click", ()=>{
 });
 // === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
 document.addEventListener('DOMContentLoaded', ()=>{
+    const magicBell = document.getElementById('magic-bell');
     const checkoutBtn = document.getElementById('cart-checkout'); // кнопка в кошику
     const orderPopup = document.getElementById('order-popup');
     const orderMessage = document.getElementById('order-message');
@@ -301,6 +306,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if (cartTotalEl) cartTotalEl.textContent = '';
         // Ховаємо попап оформлення
         if (orderPopup) orderPopup.style.display = 'none';
+        // 🎵 Тихий короткий дзвіночок
+        if (magicBell) {
+            magicBell.volume = 0.2; // гучність
+            magicBell.currentTime = 0;
+            magicBell.play().catch(()=>{});
+            // зупиняємо через 1 секунду
+            setTimeout(()=>{
+                magicBell.pause();
+                magicBell.currentTime = 0;
+            }, 2000);
+        }
         // Дякуємо
         alert("\u0414\u044F\u043A\u0443\u0454\u043C\u043E, \u0449\u043E \u043F\u0456\u0434\u0442\u0440\u0438\u043C\u0443\u0454\u0442\u0435 \u0412\u0456\u0440\u0443 \u0432 \u0414\u0438\u0432\u043E! \uD83D\uDCAB");
         // Конфеті на честь покупки (можна закоментувати, якщо забагато 😄)

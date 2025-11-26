@@ -111,10 +111,17 @@ const cartOpen = document.getElementById("cart-open");
 
 let selectedProduct = null;
 
-// 📌 Відкрити попап введення кількості
+// 📌 Відкрити попап введення кількості ТІЛЬКИ для товарів
 document.body.addEventListener("click", (e) => {
-  if (e.target.classList.contains("add-btn")) {
-    const id = Number(e.target.dataset.id);
+  const btn = e.target;
+
+  // реагуємо лише на кнопки "Додати до кошика" в картках
+  if (
+    btn.classList.contains("add-btn") &&
+    btn.dataset.id &&                         // є data-id
+    btn.closest(".carousel-item")             // всередині товару
+  ) {
+    const id = Number(btn.dataset.id);
     selectedProduct = products.find(p => p.id === id);
     quantityInput.value = 1;
     quantityPopup.style.display = "flex";
@@ -291,6 +298,7 @@ btnRight.addEventListener("click", () => {
 });
 // === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
 document.addEventListener('DOMContentLoaded', () => {
+  const magicBell = document.getElementById('magic-bell');
   const checkoutBtn   = document.getElementById('cart-checkout'); // кнопка в кошику
   const orderPopup    = document.getElementById('order-popup');
   const orderMessage  = document.getElementById('order-message');
@@ -374,6 +382,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (orderPopup) {
         orderPopup.style.display = 'none';
       }
+
+ // 🎵 Тихий короткий дзвіночок
+    if (magicBell) {
+      magicBell.volume = 0.2;       // гучність
+      magicBell.currentTime = 0;
+      magicBell.play().catch(() => {});
+
+      // зупиняємо через 1 секунду
+      setTimeout(() => {
+        magicBell.pause();
+        magicBell.currentTime = 0;
+      }, 2000);
+    }
 
       // Дякуємо
       alert('Дякуємо, що підтримуєте Віру в Диво! 💫');
