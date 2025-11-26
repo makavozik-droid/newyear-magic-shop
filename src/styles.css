@@ -1029,4 +1029,24 @@ main {
     transform: translateY(0) scale(1);
   }
 }
+/* 🔮 Кнопка "Закрити" – ніжна, другорядна */
+#cart-close {
+  background: transparent;              /* прозорий фон */
+  border: 1px solid #ffffff;            /* рожевий контур */
+  color: #5f04c1;                       /* колір як у основної кнопки */
+  box-shadow: none;
+  text-decoration: none;                /* без підкреслення */
+  font-weight: 600;
+  cursor: pointer;
+
+  /* щоб форма була як у сусідньої кнопки */
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+#cart-close:hover {
+  background: rgba(172, 6, 238, 0.08); /* легке підсвічування при наведенні */
+  opacity: 0.95;
+}
+
 

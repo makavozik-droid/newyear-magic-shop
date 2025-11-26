@@ -995,4 +995,21 @@ main {
   text-align: left;
   white-space: pre-line;
 }
+
+#cart-close {
+  color: #5f04c1;
+  box-shadow: none;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#cart-close:hover {
+  opacity: .95;
+  background: #ac06ee14;
+}
 /*# sourceMappingURL=newyear-magic-shop.4d663569.css.map */
