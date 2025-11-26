@@ -30,7 +30,7 @@ body {
   background-size: 40px 40px, 80px 80px;
   animation: snowfall 8s linear infinite;
   opacity: 0.8;
-  z-index: 1;
+  z-index: 0;
 }
 
 @keyframes snowfall {
@@ -39,41 +39,55 @@ body {
 }
 
 /* Header */
-/* ВУЖЧИЙ І ЕСТЕТИЧНІШИЙ ХЕДЕР */
 .header {
-  width: 100%;
-  max-width: 900px;    /* звужуємо хедер */
-  margin: 0 auto;      /* центруємо */
-  padding: 10px 20px;
+  width: 100%;                 /* ✅ на всю ширину екрана */
+  max-width: none;             /* більше НЕ обмежуємо 900px */
+  margin: 0;                   /* без відступів збоку/зверху */
+  padding: 10px 32px;          /* трохи більші внутрішні поля */
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-    position: relative;  /* для блискіток */
+
+  position: relative;
+  z-index: 3;                  /* над снігом і контентом */
+
+  /* ✅ суцільна смуга з приємним градієнтом */
+  background: linear-gradient(90deg, #8218f4, #e8ddf1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  /* прибираємо "плашковість" */
+  border-radius: 0;
+  backdrop-filter: none;
 }
 
 /* --- ЛОГОТИП САЙТУ --- */
 /* ЛОГОТИП — ЯСКРАВІШИЙ ТА МАГІЧНИЙ */
 .site-logo {
-  height: 85px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   display: block;
-  filter: 
-      drop-shadow(0 0 4px rgba(255, 255, 255, 1))
-      drop-shadow(0 0 12px rgba(255, 200, 255, 0.7))
-      brightness(1.15);
-  animation: logo-glow 3s infinite ease-in-out;
+
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 1))
+    drop-shadow(0 0 10px rgba(255, 200, 255, 0.7));
+
+  /* ✨ Анімація переливання */
+  animation: logo-glow 3s ease-in-out infinite;
+  position: relative;
+  z-index: 3; /* поверх фону */
 }
 
 @keyframes logo-glow {
-  0%   { filter: drop-shadow(0 0 4px #fff) brightness(1); }
-  50%  { filter: drop-shadow(0 0 10px #ff99ff) brightness(1.3); }
-  100% { filter: drop-shadow(0 0 4px #fff) brightness(1); }
+  0%   { filter: drop-shadow(0 0 4px #fff); }
+  50%  { filter: drop-shadow(0 0 10px #ff99ff); }
+  100% { filter: drop-shadow(0 0 4px #fff); }
 }
 
 @media (max-width: 480px) {
   .site-logo {
-    height: 65px;
+    height: 60px;
   }
 }
 
@@ -690,7 +704,7 @@ main {
   z-index: 2;
 }
 
-/* Контейнер блискіток */
+/* Блискучка у правому верхньому кутку хедера */
 .header::after {
   content: "";
   position: absolute;
@@ -698,7 +712,7 @@ main {
   right: -10px;
   width: 140px;
   height: 140px;
-  background: url("https://i.imgur.com/qdJg4Dh.png") center/contain no-repeat;
+  background: url("https://i.ibb.co/Z6f4KLF/magic-sparkle.png") center/contain no-repeat;
   pointer-events: none;
   opacity: 0.8;
   animation: sparkle 4s infinite ease-in-out;
@@ -754,4 +768,149 @@ main {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+/* === 🪄 SUPER MAGIC LOGO PACK 🪄 === */
+
+/* Сам логотип: сяйво + легке "дихання" */
+.site-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+
+  position: relative;
+  z-index: 3;
+
+  /* базове сяйво */
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 18px rgba(255, 200, 255, 0.9))
+    drop-shadow(0 0 30px rgba(255, 215, 128, 0.9));
+
+  /* одразу дві анімації: колірне сяйво + легкий плавний рух */
+  animation:
+    logo-glow 3.5s ease-in-out infinite,
+    logo-float 10s ease-in-out infinite;
+}
+
+/* Золотисте кільце навколо логотипу */
+.site-logo::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 230, 170, 0);
+  box-shadow: 0 0 25px rgba(255, 210, 120, 0);
+  pointer-events: none;
+  animation: logo-ring 4.5s ease-in-out infinite;
+}
+
+/* Блиск, що "пробігає" по логотипу */
+.site-logo::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -60%;
+  width: 50%;
+  height: 160%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.9) 45%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: logo-shine 4.5s ease-in-out infinite;
+}
+
+/* --- Анімації --- */
+
+/* Переливання кольору сяйва */
+@keyframes logo-glow {
+  0% {
+    filter:
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
+      drop-shadow(0 0 18px rgba(255, 200, 255, 0.9))
+      drop-shadow(0 0 30px rgba(255, 215, 128, 0.7));
+  }
+  33% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 22px rgba(159, 216, 255, 0.9))
+      drop-shadow(0 0 34px rgba(122, 140, 255, 0.9));
+  }
+  66% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 24px rgba(255, 180, 230, 0.95))
+      drop-shadow(0 0 38px rgba(255, 230, 150, 1));
+  }
+  100% {
+    filter:
+      drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
+      drop-shadow(0 0 18px rgba(255, 200, 255, 0.9))
+      drop-shadow(0 0 30px rgba(255, 215, 128, 0.7));
+  }
+}
+
+/* Легкий "плав" логотипу (ніби дихає) */
+@keyframes logo-float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Золотисте кільце, що з’являється і затихає */
+@keyframes logo-ring {
+  0% {
+    border-color: rgba(255, 230, 170, 0);
+    box-shadow: 0 0 0 rgba(255, 210, 120, 0);
+  }
+  40% {
+    border-color: rgba(255, 230, 170, 0.9);
+    box-shadow: 0 0 18px rgba(255, 210, 120, 0.9);
+  }
+  100% {
+    border-color: rgba(255, 230, 170, 0);
+    box-shadow: 0 0 0 rgba(255, 210, 120, 0);
+  }
+}
+
+/* Блиск, що "пробігає" по лого */
+@keyframes logo-shine {
+  0% {
+    opacity: 0;
+    transform: translateX(0) skewX(-20deg);
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(130%) skewX(-20deg);
+  }
+  70% {
+    opacity: 0;
+    transform: translateX(260%) skewX(-20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+/* Блискучка в хедері */
+@keyframes sparkle {
+  0%   { opacity: 0.5; transform: scale(0.9) rotate(0deg); }
+  50%  { opacity: 1;   transform: scale(1.05) rotate(10deg); }
+  100% { opacity: 0.5; transform: scale(0.9) rotate(0deg); }
 }
