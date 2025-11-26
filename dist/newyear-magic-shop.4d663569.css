@@ -1012,4 +1012,21 @@ main {
   opacity: .95;
   background: #ac06ee14;
 }
+
+#order-cancel {
+  color: #d53fff;
+  box-shadow: none;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#order-cancel:hover {
+  opacity: .95;
+  background: #b64dfc14;
+}
 /*# sourceMappingURL=newyear-magic-shop.4d663569.css.map */

@@ -1049,4 +1049,22 @@ main {
   opacity: 0.95;
 }
 
+/* 🔮 Кнопка "Скасувати" — така ж, як "Закрити" */
+#order-cancel {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #d53fff;
+  box-shadow: none;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+
+  padding: 6px 12px;      /* така ж висота, як у кнопки "Закрити" */
+  border-radius: 10px;
+}
+
+#order-cancel:hover {
+  background: rgba(182, 77, 252, 0.08);
+  opacity: 0.95;
+}
 
