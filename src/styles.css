@@ -60,7 +60,7 @@ body {
   color: #ffffff;
   text-shadow:
     0 0 6px rgba(255,255,255,0.9),
-    0 0 12px rgba(150, 80, 255, 0.8);
+    0 0 20px rgba(150, 80, 255, 0.8);
 }
 
 .cart {
@@ -202,7 +202,7 @@ main {
 }
 
 .product-name {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #3a175b;
   margin: 8px 0 6px;
@@ -225,7 +225,7 @@ main {
 }
 
 .product-price {
-  font-size: 1.15rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #d6287f;
   margin: 10px 0 12px;
@@ -245,13 +245,58 @@ main {
   font-weight: bold;
   font-size: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: 0.25s;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+
+  position: relative;      /* для блискіток */
+  overflow: hidden;        /* щоб нічого не вилазило за краї */
 }
 
 .add-btn:hover {
   background: #ff6a9c;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+/* Блискітки на кнопці */
+.add-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.9) 0, transparent 55%),
+    radial-gradient(circle, rgba(255,255,255,0.7) 0, transparent 60%);
+  background-repeat: no-repeat;
+  background-position: 0% 0%, 100% 100%;
+  opacity: 0;
+  transform: translateX(-120%) rotate(25deg);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: btn-shimmer 3s ease-in-out infinite;
+}
+
+/* трішки підсилюємо ефект при наведенні */
+.add-btn:hover::after {
+  opacity: 1;
+}
+
+@keyframes btn-shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%) rotate(25deg);
+  }
+  20% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(0%) rotate(25deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(140%) rotate(25deg);
+  }
 }
 
 /* Кнопки-каруселі */

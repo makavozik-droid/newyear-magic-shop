@@ -63,7 +63,7 @@ body {
 .header h1 {
   letter-spacing: 2px;
   color: #fff;
-  text-shadow: 0 0 6px #ffffffe6, 0 0 12px #9650ffcc;
+  text-shadow: 0 0 6px #ffffffe6, 0 0 20px #9650ffcc;
   margin: 0;
   font-family: Marck Script, cursive;
   font-size: 2rem;
@@ -128,8 +128,8 @@ main {
 
 .carousel-section h2, .currency-info h2 {
   text-align: center;
-  text-shadow: 0 0 6px #fffc;
   color: #2b0b4a;
+  text-shadow: 0 0 6px #fffc;
   letter-spacing: 2px;
   font-family: Marck Script, cursive;
   font-size: 2rem;
@@ -196,31 +196,33 @@ main {
 }
 
 .product-name {
-  color: #5a1a80;
-  text-shadow: 0 0 4px #ffffffb3;
-  letter-spacing: 1px;
+  color: #3a175b;
+  text-shadow: 0 0 3px #fff9;
+  letter-spacing: .5px;
   margin: 8px 0 6px;
-  font-family: Marck Script, cursive;
-  font-size: 1.35rem;
-  font-weight: bold;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .product-desc {
-  color: #4c3770;
-  flex: 1;
+  color: #2a2043;
   min-height: 70px;
+  text-shadow: none;
+  flex: 1;
   margin-top: 6px;
   margin-bottom: 10px;
-  font-size: .85rem;
+  font-size: .9rem;
+  line-height: 1.4;
 }
 
 .product-price {
   color: #d6287f;
-  text-shadow: 0 0 5px #ffffffb3;
+  text-shadow: 0 0 4px #ffffffb3;
   margin: 10px 0 12px;
-  font-family: Marck Script, cursive;
-  font-size: 2rem;
-  font-weight: bold;
+  font-family: inherit;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .add-btn {
@@ -233,7 +235,9 @@ main {
   padding: 10px;
   font-size: 1rem;
   font-weight: bold;
-  transition: all .25s;
+  transition: transform .25s, box-shadow .25s, background .25s;
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 4px 12px #0000004d;
 }
 
@@ -241,6 +245,53 @@ main {
   background: #ff6a9c;
   transform: translateY(-3px)scale(1.05);
   box-shadow: 0 6px 18px #0006;
+}
+
+.add-btn:after {
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background-color: #0000;
+  background-image: radial-gradient(circle, #ffffffe6 0, #0000 55%), radial-gradient(circle, #ffffffb3 0, #0000 60%);
+  background-position: 0 0, 100% 100%;
+  background-repeat: no-repeat;
+  background-size: auto, auto;
+  background-attachment: scroll, scroll;
+  background-origin: padding-box, padding-box;
+  background-clip: border-box, border-box;
+  width: 200%;
+  height: 200%;
+  animation: 3s ease-in-out infinite btn-shimmer;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  transform: translateX(-120%)rotate(25deg);
+}
+
+.add-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes btn-shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%)rotate(25deg);
+  }
+
+  20% {
+    opacity: .9;
+  }
+
+  50% {
+    opacity: .7;
+    transform: translateX(0%)rotate(25deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%)rotate(25deg);
+  }
 }
 
 .carousel-btn {
@@ -532,7 +583,7 @@ main {
 
 @media (width <= 480px) {
   body {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .header {
@@ -553,6 +604,71 @@ main {
 
   .carousel-window {
     padding-inline: 8px;
+  }
+
+  .carousel-item {
+    flex: 0 0 90%;
+    max-width: 90%;
+    min-height: 360px;
+    padding: 12px;
+  }
+
+  .carousel-item img {
+    height: 180px;
+  }
+
+  .product-name {
+    font-size: 1.25rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+  }
+
+  .product-desc {
+    color: #2b1a4a;
+    min-height: 60px;
+    text-shadow: none;
+    font-size: .85rem;
+  }
+
+  .add-btn {
+    padding: 9px;
+    font-size: .95rem;
+  }
+
+  .left {
+    left: 2px;
+  }
+
+  .right {
+    right: 2px;
+  }
+}
+
+@media (width <= 360px) {
+  body {
+    font-size: 13px;
+  }
+
+  .header {
+    padding: 6px 10px;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .cart-icon {
+    width: 28px;
+  }
+
+  .carousel {
+    margin-top: 10px;
+  }
+
+  .carousel-window {
+    padding-inline: 6px;
   }
 
   .carousel-item {
