@@ -1029,4 +1029,8 @@ main {
   opacity: .95;
   background: #b64dfc14;
 }
+
+body {
+  background: linear-gradient(360deg, indigo, #6a5acd, orchid, #afeeee);
+}
 /*# sourceMappingURL=newyear-magic-shop.4d663569.css.map */
