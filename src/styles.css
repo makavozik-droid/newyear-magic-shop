@@ -1067,6 +1067,3 @@ main {
   background: rgba(182, 77, 252, 0.08);
   opacity: 0.95;
 }
-/* Фоновий градієнт з анімацією */
-body {
-  background: linear-gradient(360deg, #4B0082, #6A5ACD, #DA70D6, #AFEEEE);

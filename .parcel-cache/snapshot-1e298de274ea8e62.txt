@@ -3,7 +3,7 @@
 91C:\Users\makav\newyear-magic-shop\node_modules\node-gyp-build-optional-packages\optional.js134085675334409760 0
 94C:\Users\makav\newyear-magic-shop\node_modules\caniuse-lite\data\features\css-focus-visible.js134085675337618442 0
 81C:\Users\makav\newyear-magic-shop\node_modules\@parcel\markdown-ansi\package.json134085675335056550 0
-38C:\Users\makav\newyear-magic-shop\dist134087008714242367 1
+38C:\Users\makav\newyear-magic-shop\dist134087013054035888 1
 61C:\Users\makav\newyear-magic-shop\src\assets\img\гірлянда.png134085666056338311 0
 59C:\Users\makav\newyear-magic-shop\node_modules\@parcel\core134085675372453170 1
 95C:\Users\makav\newyear-magic-shop\node_modules\@swc\helpers\cjs\_class_private_field_update.cjs134085675335647445 0
@@ -60,7 +60,7 @@
 104C:\Users\makav\newyear-magic-shop\node_modules\node-releases\data\release-schedule\release-schedule.json134085675334409760 0
 73C:\Users\makav\newyear-magic-shop\node_modules\msgpackr\dist\index.js.map134085675339463542 0
 84C:\Users\makav\newyear-magic-shop\node_modules\@swc\core-win32-x64-msvc\package.json134085675335527267 0
-48C:\Users\makav\newyear-magic-shop\src\styles.css134087008713705994 0
+48C:\Users\makav\newyear-magic-shop\src\styles.css134087014340261078 0
 98C:\Users\makav\newyear-magic-shop\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\mdb_stat.1134085675337737629 0
 51C:\Users\makav\newyear-magic-shop\src\assets\sounds134086602582069193 1
 86C:\Users\makav\newyear-magic-shop\node_modules\type-fest\source\async-return-type.d.ts134085675334435487 0
@@ -3289,7 +3289,7 @@
 77C:\Users\makav\newyear-magic-shop\node_modules\@parcel\node-resolver-core\lib134085675336119000 1
 81C:\Users\makav\newyear-magic-shop\node_modules\@parcel\node-resolver-core\LICENSE134085675336030977 0
 86C:\Users\makav\newyear-magic-shop\node_modules\@parcel\node-resolver-core\package.json134085675336186321 0
-70C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.4d663569.css134087008714197728 0
+70C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.4d663569.css134087013053983913 0
 97C:\Users\makav\newyear-magic-shop\node_modules\@parcel\node-resolver-core\lib\builtins.browser.js134085675336075684 0
 88C:\Users\makav\newyear-magic-shop\node_modules\@parcel\node-resolver-core\lib\Wrapper.js134085675336166277 0
 87C:\Users\makav\newyear-magic-shop\node_modules\@parcel\node-resolver-core\lib\_empty.js134085675336062953 0
@@ -3570,7 +3570,7 @@
 73C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.290bd9ad.js.map134086276414203574 0
 70C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.458d623f.css134086313912211027 0
 74C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.458d623f.css.map134086313912264402 0
-74C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.4d663569.css.map134087008714229709 0
+74C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.4d663569.css.map134087013054025612 0
 73C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.59712999.js.map134086995952265967 0
 70C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.cc1cd657.css134086320355973479 0
 74C:\Users\makav\newyear-magic-shop\dist\newyear-magic-shop.cc1cd657.css.map134086320356107785 0
