@@ -201,12 +201,14 @@ function renderCart() {
         const row = document.createElement("div");
         row.className = "cart-item-row";
         row.innerHTML = `
-      <span>${product.name} \xd7 ${qty}</span>
-      <span>
-        ${sum} \u{406}\u{421}
-        <button class="cart-remove" data-id="${id}">\u{2716}</button>
-      </span>
-    `;
+  <div class="cart-item-left">
+    ${product.name} \xd7 ${qty}
+  </div>
+  <div class="cart-item-right">
+    <span class="cart-item-sum">${sum} \u{406}\u{421}</span>
+    <button class="cart-remove" data-id="${id}">\u{2716}</button>
+  </div>
+`;
         cartItemsDiv.appendChild(row);
     }
     cartTotalP.textContent = `\u{417}\u{430}\u{433}\u{430}\u{43B}\u{43E}\u{43C}: ${total} \u{406}\u{421}`;
@@ -240,16 +242,19 @@ cartItemsDiv.addEventListener("click", (e)=>{
 const btnLeft = document.getElementById("btn-left");
 const btnRight = document.getElementById("btn-right");
 const carouselWindow = document.querySelector(".carousel-window");
-// прокручуємо на ширину "вікна каруселі"
+// прокручуємо майже на ширину вікна
+function getScrollAmount() {
+    return Math.round(carouselWindow.clientWidth * 0.9);
+}
 btnLeft.addEventListener("click", ()=>{
-    const amount = carouselWindow.clientWidth - 40;
+    const amount = getScrollAmount();
     carouselWindow.scrollBy({
         left: -amount,
         behavior: "smooth"
     });
 });
 btnRight.addEventListener("click", ()=>{
-    const amount = carouselWindow.clientWidth - 40;
+    const amount = getScrollAmount();
     carouselWindow.scrollBy({
         left: amount,
         behavior: "smooth"

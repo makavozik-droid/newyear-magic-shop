@@ -239,15 +239,17 @@ function renderCart() {
     total += sum;
 
     const row = document.createElement("div");
-    row.className = "cart-item-row";
-    row.innerHTML = `
-      <span>${product.name} × ${qty}</span>
-      <span>
-        ${sum} ІС
-        <button class="cart-remove" data-id="${id}">✖</button>
-      </span>
-    `;
-    cartItemsDiv.appendChild(row);
+row.className = "cart-item-row";
+row.innerHTML = `
+  <div class="cart-item-left">
+    ${product.name} × ${qty}
+  </div>
+  <div class="cart-item-right">
+    <span class="cart-item-sum">${sum} ІС</span>
+    <button class="cart-remove" data-id="${id}">✖</button>
+  </div>
+`;
+cartItemsDiv.appendChild(row);
   }
 
   cartTotalP.textContent = `Загалом: ${total} ІС`;
@@ -286,16 +288,21 @@ const btnLeft = document.getElementById("btn-left");
 const btnRight = document.getElementById("btn-right");
 const carouselWindow = document.querySelector(".carousel-window");
 
-// прокручуємо на ширину "вікна каруселі"
+// прокручуємо майже на ширину вікна
+function getScrollAmount() {
+  return Math.round(carouselWindow.clientWidth * 0.9);
+}
+
 btnLeft.addEventListener("click", () => {
-  const amount = carouselWindow.clientWidth - 40;
+  const amount = getScrollAmount();
   carouselWindow.scrollBy({ left: -amount, behavior: "smooth" });
 });
 
 btnRight.addEventListener("click", () => {
-  const amount = carouselWindow.clientWidth - 40;
+  const amount = getScrollAmount();
   carouselWindow.scrollBy({ left: amount, behavior: "smooth" });
 });
+
 // === ОФОРМЛЕННЯ ЗАМОВЛЕННЯ ===
 document.addEventListener('DOMContentLoaded', () => {
   const magicBell = document.getElementById('magic-bell');
